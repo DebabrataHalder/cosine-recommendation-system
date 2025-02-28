@@ -10,7 +10,7 @@ from requests.exceptions import RequestException
 load_dotenv()
 tmdb_api_key = os.getenv("TMDB_API_KEY")
 
-# --- Helper Functions ---
+# Helper Functions
 def fetch_poster(movie_id):
     MAX_RETRIES = 3
     RETRY_DELAY = 1  # seconds
@@ -44,7 +44,7 @@ def recommend(movie):
         st.error(f"Recommendation error: {str(e)}")
         return []
 
-# --- App Configuration & Styling ---
+#  App Configuration & Styling
 st.set_page_config(page_title="Movie Recommender", layout="wide")
 
 # Custom CSS for uniform movie cards
@@ -88,7 +88,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# --- Sidebar for Navigation ---
+# Sidebar for Navigation 
 st.sidebar.header("Movie Selection")
 movies = pickle.load(open('movie_list.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
